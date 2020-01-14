@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import googleIcon from '../assets/static/google-icon.png'
 import twitterIcon from '../assets/static/twitter-icon.png'
 import '../assets/styles/components/Login.css'
@@ -37,9 +37,9 @@ function Login() {
                 </section>
                 <p className="login__container--register">
                     No tienes ninguna cuenta {' '}
-                    {/*<Link to="/register">*/}
-                    {/*    Regístrate*/}
-                    {/*</Link>*/}
+                    <Link to="/register">
+                        Regístrate
+                    </Link>
                 </p>
             </section>
         </section>
