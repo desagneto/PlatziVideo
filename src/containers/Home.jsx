@@ -16,7 +16,7 @@ const Home = ({myList, trends, originals}) => {
               <CarouselItem
                   key={item.id}
                   {...item}
-                  isList={false}/>
+                  isList/>
             )}
           </Carousel>
         </Categories>
