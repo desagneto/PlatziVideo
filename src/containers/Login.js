@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom';
 import googleIcon from '../assets/static/google-icon.png'
 import twitterIcon from '../assets/static/twitter-icon.png'
 import '../assets/styles/components/Login.css'
+import {connect} from "react-redux";
+import {loginRequest} from "../actions";
 
-function Login() {
+function Login(props) {
 
     const [form, setValues] = React.useState({
         email: ''
@@ -18,8 +20,10 @@ function Login() {
     };
 
     const handleSubmit = e => {
-        e.preventDefault()
-        console.log(form)
+        e.preventDefault();
+        props.loginRequest(form);
+        props.history.push("/");
+        console.log(form);
     };
 
     return (
@@ -65,4 +69,10 @@ function Login() {
 
 }
 
-export default Login;
+// export default Login;
+
+const mapDispatchToProps = {
+    loginRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -46,6 +46,7 @@ const mapStateToProps = state => {
         myList: state.myList,
         trends: state.trends,
         originals: state.originals,
+        user: state.user,
     };
 };
 
