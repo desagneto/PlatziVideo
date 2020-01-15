@@ -27,8 +27,17 @@ function Header(props) {
                     <p>Perfil</p>
                 </div>
                 <ul>
-                    <li><a href="/">Cuenta</a></li>
-                    <li><Link to="/login">Iniciar Sesión</Link></li>
+
+                    {hasUser ?
+                        <li><a href="/">Cuenta</a></li> : null
+                    }
+
+                    {hasUser ?
+                        <li><Link to="/login">Cerrar Sesión</Link></li>
+                        :
+                        <li><Link to="/login">Iniciar Sesión</Link></li>
+                    }
+
                 </ul>
             </div>
         </header>
