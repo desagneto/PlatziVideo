@@ -27,14 +27,22 @@ const CarouselItem = (props) => {
             <div className="carousel-item__details">
                 <div>
                     <img className="carousel-item__details--img" src={playIcon} alt="Play Icon"/>
-                    <img className="carousel-item__details--img"
-                         src={plusIcon}
-                         alt="Plus Icon"
-                         onClick={handleSetFavourite}/>
-                    <img className="carousel-item__details--img"
-                         src={removeIcon}
-                         alt="Delete Icon"
-                         onClick={() => handleDeleteFavourite(id)}/>
+
+                    {props.isList ?
+
+                        <img className="carousel-item__details--img"
+                             src={removeIcon}
+                             alt="Delete Icon"
+                             onClick={() => handleDeleteFavourite(id)}/>
+
+                        :
+
+                        <img className="carousel-item__details--img"
+                             src={plusIcon}
+                             alt="Plus Icon"
+                             onClick={handleSetFavourite}/>
+                    }
+
                 </div>
                 <p className="carousel-item__details--title">{title}</p>
                 <p className="carousel-item__details--subtitle">
