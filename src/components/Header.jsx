@@ -6,6 +6,7 @@ import userIcon from '../assets/static/user-icon.png';
 import {connect} from "react-redux";
 import gravatar from "../utils/gravatar";
 import {logoutRequest} from "../actions";
+import PropTypes from 'prop-types';
 
 function Header(props) {
 
@@ -49,6 +50,10 @@ function Header(props) {
     )
 
 }
+
+Header.propTypes = {
+    user: PropTypes.object,
+};
 
 const mapStateToProps = state => {
     return {
