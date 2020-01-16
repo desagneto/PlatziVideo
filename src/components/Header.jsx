@@ -5,11 +5,16 @@ import logo from '../assets/static/logo-platzi-video-BW2.png';
 import userIcon from '../assets/static/user-icon.png';
 import {connect} from "react-redux";
 import gravatar from "../utils/gravatar";
+import {logoutRequest} from "../actions";
 
 function Header(props) {
 
     const {user} = props;
     const hasUser = Object.keys(user).length > 0;
+
+    const handleLogout = () => {
+        props.logoutRequest({});
+    };
 
     return (
         <header className="header">
@@ -29,11 +34,11 @@ function Header(props) {
                 <ul>
 
                     {hasUser ?
-                        <li><a href="/">Cuenta</a></li> : null
+                        <li><a href="/"/>{user.name}</li> : null
                     }
 
                     {hasUser ?
-                        <li><Link to="/login">Cerrar Sesión</Link></li>
+                        <li><Link to="#logout" onClick={handleLogout}>Cerrar Sesión</Link></li>
                         :
                         <li><Link to="/login">Iniciar Sesión</Link></li>
                     }
@@ -51,6 +56,10 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = {
+    logoutRequest,
+};
+
 // export default Header;
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
